@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -40,13 +40,14 @@ class CategoryController extends Controller
 	    return view('admin.categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param CategoryRequest $request
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function store(CategoryRequest $request)
     {
 	    $data = $request->all();
 
@@ -80,14 +81,15 @@ class CategoryController extends Controller
 	    return view('admin.categories.edit', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $category)
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param CategoryRequest $request
+	 * @param  int $category
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function update(CategoryRequest $request, $category)
     {
 	    $data = $request->all();
 

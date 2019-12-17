@@ -1,42 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth'); // Verifica se o usuário está logado ou não
-    }
+	private $product;
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+	public function __construct(Product $product)
+	{
+		$this->product = $product;
+	}
+
     public function index()
     {
-        return view('home');
+    	$products = $this->product->limit(9)->orderBy('id', 'DESC')->get();
+
+	    return view('welcome', compact('products'));
     }
+
+	public function single($slug)
+	{
+		$product = $this->product->whereSlug($slug)->first();
+
+		return view('single', compact('product'));
+	}
 }
-
-
-/*
-Middlewares: Dentro de aplicações web, ele é um código ou programa que é executado entre
-a requisição(Request) e a nossa aplicação (é a lógica executado pelo acesso a uma determinada rota)
-
-Request -> Middleware -> Aplicação (Acesso qualquer rota) <- Marketplace
-
-*/
-
-
 
 
 
