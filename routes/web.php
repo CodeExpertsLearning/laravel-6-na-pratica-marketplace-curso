@@ -21,6 +21,11 @@ Route::prefix('cart')->name('cart.')->group(function(){
 	Route::get('cancel', 'CartController@cancel')->name('cancel');
 });
 
+Route::prefix('checkout')->name('checkout.')->group(function(){
+	Route::get('/', 'CheckoutController@index')->name('index');
+	Route::post('/proccess', 'CheckoutController@proccess')->name('proccess');
+});
+
 Route::group(['middleware' => ['auth']], function(){
 
 	Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function(){
