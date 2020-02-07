@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Marketplace L6</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <style>
         .front.row {
             margin-bottom: 40px;
@@ -40,6 +40,13 @@
 
         <div class="my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
+
+                @auth
+                    <li class="nav-item  @if(request()->is('my-orders')) active @endif">
+                        <a href="{{route('user.orders')}}" class="nav-link">Meus Pedidos</a>
+                    </li>
+                @endauth
+
                 <li class="nav-item">
                     <a href="{{route('cart.index')}}" class="nav-link">
                         @if(session()->has('cart'))
@@ -57,6 +64,11 @@
     @include('flash::message')
     @yield('content')
 </div>
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script src="{{asset('js/app.js')}}"></script>
 @yield('scripts')
 </body>
 </html>

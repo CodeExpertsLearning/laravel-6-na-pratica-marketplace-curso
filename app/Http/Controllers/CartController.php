@@ -9,7 +9,6 @@ class CartController extends Controller
 	public function index()
 	{
 		$cart = session()->has('cart') ? session()->get('cart') : [];
-
 		return view('cart', compact('cart'));
 	}
 
@@ -23,7 +22,7 @@ class CartController extends Controller
     		return redirect()->route('home');
 
 		$product = array_merge($productData,
-							   $product->first(['name', 'price'])->toArray());
+							   $product->first(['name', 'price', 'store_id'])->toArray());
 
 	    if(session()->has('cart')) {
 
