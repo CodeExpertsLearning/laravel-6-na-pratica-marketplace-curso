@@ -25,7 +25,7 @@ class HomeController extends Controller
 	{
 		$product = $this->product->whereSlug($slug)->first();
 
-		return view('single', compact('product', 'categories'));
+		return view('single', compact('product'));
 	}
 }
 

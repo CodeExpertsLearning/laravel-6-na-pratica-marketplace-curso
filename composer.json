@@ -11,20 +11,20 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "laracasts/flash": "^3.0",
-        "laravel/framework": "^6.0",
+        "laravel/framework": "^7.0",
         "laravel/nexmo-notification-channel": "^2.3",
-        "laravel/tinker": "^1.0",
-        "laravel/ui": "^1.1",
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "^2.0",
         "pagseguro/pagseguro-php-sdk": "^6.0",
         "ramsey/uuid": "^3.9",
         "spatie/laravel-sluggable": "^2.2"
     },
     "require-dev": {
-        "facade/ignition": "^1.4",
+        "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0"
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^8.5"
     },
     "config": {
         "optimize-autoloader": true,
