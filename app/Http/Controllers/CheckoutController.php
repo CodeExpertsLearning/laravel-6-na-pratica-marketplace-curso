@@ -18,7 +18,7 @@ class CheckoutController extends Controller
 	    }
 
 	    if(!session()->has('cart')) return redirect()->route('home');
-    	
+
 		$this->makePagSeguroSession();
 
 		$cartItems = array_map(function($line){

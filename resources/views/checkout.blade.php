@@ -9,6 +9,11 @@
     <div class="container">
         <div class="col-md-6">
             <div class="row">
+                <div class="col-md-12 msg">
+
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <h2>Dados para Pagamento</h2>
                     <hr>

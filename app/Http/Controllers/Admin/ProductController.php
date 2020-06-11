@@ -99,7 +99,6 @@ class ProductController extends Controller
     	$product = $this->product->findOrFail($product);
 	    $categories = \App\Category::all(['id', 'name']);
 
-
 	    return view('admin.products.edit', compact('product', 'categories'));
     }
 
