@@ -1,4 +1,4 @@
-function proccessPayment(token)
+function proccessPayment(token, buttonTarget)
 {
     let data = {
         card_token: token,
@@ -14,8 +14,16 @@ function proccessPayment(token)
         data: data,
         dataType: 'json',
         success: function(res) {
+
             toastr.success(res.data.message, 'Sucesso');
             window.location.href = `${urlThanks}?order=${res.data.order}`;
+        },
+        error: function(err) {
+            buttonTarget.disabled = false;
+            buttonTarget.innerHTML = 'Efetuar Pagamento';
+
+            let message = JSON.parse(err.responseText);
+            document.querySelector('div.msg').innerHTML = showErrorMessages(message.data.message.error.message);
         }
     });
 }
@@ -73,7 +81,7 @@ function errorsMapPagseguroJS(code)
         break;
 
         case "10002":
-        case "30405":
+        case  "30405":
             return 'Data com formato inválido!';
         break;
 
