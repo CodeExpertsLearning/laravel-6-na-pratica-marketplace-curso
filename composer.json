@@ -11,20 +11,21 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "laracasts/flash": "^3.0",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
+        "laravel/legacy-factories": "^1.0",
         "laravel/nexmo-notification-channel": "^2.3",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0",
+        "laravel/ui": "^3.0",
         "pagseguro/pagseguro-php-sdk": "^6.0",
-        "ramsey/uuid": "^3.9",
+        "ramsey/uuid": "^4.0",
         "spatie/laravel-sluggable": "^2.2"
     },
     "require-dev": {
-        "facade/ignition": "^2.0",
+        "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -38,12 +39,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "files": ["helpers/functions.php"]
     },
     "autoload-dev": {

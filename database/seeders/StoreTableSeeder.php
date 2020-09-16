@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use Database\Seeders;
 
 class StoreTableSeeder extends Seeder
 {
