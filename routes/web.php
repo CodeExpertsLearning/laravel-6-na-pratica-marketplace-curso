@@ -169,3 +169,7 @@ Route::get('not', function(){
 
 	//return $user->readNotifications->count();
 });
+
+// Route::get('/storage', function(){
+//     return \Illuminate\Support\Facades\Artisan::call('storage:link');
+// });
