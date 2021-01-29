@@ -45,7 +45,7 @@ submitButton.forEach(function(el, k) {
                 expirationMonth: document.querySelector('input[name=card_month]').value,
                 expirationYear:  document.querySelector('input[name=card_year]').value,
                 success: function(res) {
-                    proccessPayment(res.card.token, paymentType);
+                    proccessPayment(res.card.token, paymentType, buttonTarget);
                 },
                 error: function(err) {
                     buttonTarget.disabled = false;
@@ -59,7 +59,7 @@ submitButton.forEach(function(el, k) {
         }
 
         if(paymentType === 'BOLETO') {
-            proccessPayment(null, paymentType);
+            proccessPayment(null, paymentType, buttonTarget);
         }
     });
 });
