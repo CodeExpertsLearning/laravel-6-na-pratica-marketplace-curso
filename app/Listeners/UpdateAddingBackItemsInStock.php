@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\UserCancelledOrder;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use App\Services\ProductStockManagerService;
 
 class UpdateAddingBackItemsInStock
 {
@@ -26,6 +27,6 @@ class UpdateAddingBackItemsInStock
      */
     public function handle(UserCancelledOrder $event)
     {
-        //
+        (new ProductStockManagerService($event->userOrder))->addingProductInStock();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\UserOrder;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -19,9 +20,9 @@ class UserCancelledOrder
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserOrder $userOrder)
     {
-        //
+        $this->userOrder = $userOrder;
     }
 
     /**
