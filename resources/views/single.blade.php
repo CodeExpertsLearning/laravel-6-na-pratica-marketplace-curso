@@ -48,7 +48,29 @@
                     </div>
                     <button class="btn btn-lg btn-danger">Comprar</button>
                 </form>
+
+                <hr>
             </div>
+
+            <!-- trecho calculo de frete -->
+
+            <div class="col-md-12">
+
+            <div class="mt-4">
+                <h4>Calcule o Frete</h4>
+                <form action="" class="form-inline formShipping">
+                    <input
+                    placeholder="99999-999" 
+                    type="text" 
+                    class="zipcode form-control col-md-6 mr-3">
+                    <button class="btn btn-outline-success buttonShipping">Calcular</button>
+                </form>
+            </div>
+
+            </div>
+
+            <!-- trecho calculo de frete -->
+
         </div>
     </div>
 
@@ -58,4 +80,21 @@
             {{$product->body}}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+
+<script>
+    let formShipping = document.querySelector('form.formShipping');
+
+    formShipping.addEventListener('submit', e => { 
+        e.preventDefault();
+        let url = '/api/shipping';
+
+        fetch(url) //mdn.io/fetch
+            .then(response => response.json())
+            .then(responseBody => alert(responseBody.data));
+    });
+</script>
+
 @endsection
