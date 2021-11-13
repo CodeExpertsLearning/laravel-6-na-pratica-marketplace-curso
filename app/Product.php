@@ -22,6 +22,11 @@ class Product extends Model
 		                  ->saveSlugsTo('slug');
 	}
 
+	public function getShippingOptsAttribute()
+	{
+		return [16, 16, 16, 1, 1]; // largura, altura, comprimento, peso e quantidade
+	}
+
     public function store()
     {
     	return $this->belongsTo(Store::class);

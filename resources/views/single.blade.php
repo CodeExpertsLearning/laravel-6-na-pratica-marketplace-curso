@@ -91,9 +91,36 @@
         e.preventDefault();
         let url = '/api/shipping';
 
-        fetch(url) //mdn.io/fetch
-            .then(response => response.json())
-            .then(responseBody => alert(responseBody.data));
+        let body = {
+            'zipcode': document.querySelector('input.zipcode').value,
+            '_token': '{{csrf_token()}}',
+            'productId': document.querySelector('input[name="product[slug]"]').value
+        };
+
+        fetch(url, {
+            'method': 'POST',
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'body': JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(responseBody => {
+            let formParent = formShipping.parentElement;
+            
+            for(let shipping of responseBody.data.shipping) {
+            
+                let elDiv = document.createElement('div');
+                
+                elDiv.className = 'mt-3';
+                elDiv.innerHTML = `<div class="mb-3 d-flex justify-content-between"> 
+                            <strong> ${shipping.name}:</strong>
+                            <strong> ${shipping.price}</strong>
+                </div>`;
+
+                formParent.appendChild(elDiv);
+            }    
+        });
     });
 </script>
 

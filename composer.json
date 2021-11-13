@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "flyingluscas/correios-php": "^2.4",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^8.0",
         "laravel/legacy-factories": "^1.0",
